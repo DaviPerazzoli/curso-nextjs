@@ -1,5 +1,4 @@
-import {UserJSON} from '../pages/users'; 
-
+import {UserJSON} from '@/pages/users'; 
 
 const User: React.FC<{user: UserJSON}> = ({ user }) => {
     return <>

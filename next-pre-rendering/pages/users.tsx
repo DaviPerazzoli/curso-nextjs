@@ -41,8 +41,6 @@ export type UserJSON = {
     }
 }
 
-export default UserList;
-
 export async function getStaticProps() {
     const response = await fetch('https://jsonplaceholder.typicode.com/users');
     const data: UserJSON[] = await response.json();
@@ -53,3 +51,5 @@ export async function getStaticProps() {
         },
     }
 }
+
+export default UserList;
