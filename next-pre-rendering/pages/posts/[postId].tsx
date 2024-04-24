@@ -8,6 +8,23 @@ const Post: React.FC<{post: PostJSON}> = ({ post }) => {
     </>)
 }
 
+export async function getStaticPaths() {
+    return {
+        paths: [
+            {
+                params: { postId: '1' }
+            },
+            {
+                params: { postId: '2' }
+            },
+            {
+                params: { postId: '3' }
+            },
+        ],
+        fallback: false,
+    }
+}
+
 export async function getStaticProps( context: any ) {
     const { params } = context;
 
@@ -22,6 +39,5 @@ export async function getStaticProps( context: any ) {
         }
     }
 }
-
 
 export default Post;
