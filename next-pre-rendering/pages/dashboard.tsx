@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-interface DashboardData {
+export interface DashboardData {
     posts: number;
     likes: number;
     followers: number;
@@ -21,7 +21,7 @@ function Dashboard() {
     useEffect(() => {
         async function fetchDashboardData() {
             const response = await fetch('http://localhost:4000/dashboard');
-            const data = await response.json();
+            const data: DashboardData = await response.json();
             setDashboardData(data);
             setisLoading(false);
         }
