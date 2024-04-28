@@ -1,7 +1,6 @@
 import useSWR from 'swr';
-import { DashboardData }  from './dashboard';
 
-const fetcher = async (key: string): Promise<DashboardData> => {
+const fetcher = async (key: string)=> {
     const response = await fetch(key);
     const data = await response.json();
     return data;
