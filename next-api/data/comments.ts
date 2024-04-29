@@ -1,4 +1,4 @@
-export const comments: Comments = [
+export const comments: Comment[] = [
     {
         id: 1,
         text: 'This is the first comment'
@@ -13,7 +13,7 @@ export const comments: Comments = [
     }
 ]
 
-export type Comments = {
+export type Comment = {
     id: number,
     text: string
-}[];
+};
