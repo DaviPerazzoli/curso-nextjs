@@ -1,7 +1,8 @@
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import { truncate } from "fs";
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 
-function Blog ( {title, description} : InferGetServerSidePropsType<typeof getServerSideProps>) {
+function Blog ( {title, description} : InferGetStaticPropsType<typeof getStaticProps>) {
     return (
         <>
         <Head>
@@ -15,13 +16,26 @@ function Blog ( {title, description} : InferGetServerSidePropsType<typeof getSer
 
 export default Blog;
 
-export const getServerSideProps = (async () => {
+export const getStaticPaths = (async () => {
+    return {
+      paths: [
+        {
+          params: {
+            blogId: '1',
+          },
+        }
+      ],
+      fallback: false
+    }
+  }) satisfies GetStaticPaths;
+
+export const getStaticProps = (async () => {
     return {
         props: {
             title: 'Article title',
             description: 'Article description'
         }
     }
-}) satisfies GetServerSideProps<{
+}) satisfies GetStaticProps<{
     title: string; description: string;
 }>
