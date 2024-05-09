@@ -9,7 +9,7 @@ function Blog ( {title, description} : InferGetStaticPropsType<typeof getStaticP
             <title>{title}</title>
             <meta name='description' content={description}/>
         </Head>
-        <h1 className='content'>Article</h1>
+        <h1 className='content'>Env analytics {process.env.NEXT_PUBLIC_ANALYTICS_ID}</h1>
         </>
     )
 }
@@ -30,12 +30,16 @@ export const getStaticPaths = (async () => {
   }) satisfies GetStaticPaths;
 
 export const getStaticProps = (async () => {
-    return {
-        props: {
-            title: 'Article title',
-            description: 'Article description'
-        }
-    }
+  const user = process.env.DB_USER as string;
+  const password = process.env.DB_PASSWORD as string;
+
+  console.log(`Connecting to database with username ${user} and password ${password}`)
+  return {
+      props: {
+          title: 'Article title',
+          description: 'Article description'
+      }
+  }
 }) satisfies GetStaticProps<{
     title: string; description: string;
 }>
