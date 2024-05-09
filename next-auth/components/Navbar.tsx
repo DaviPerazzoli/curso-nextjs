@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { signIn, signOut } from "next-auth/react";
-import { sign } from "crypto";
 
 function Navbar () {
     return (
