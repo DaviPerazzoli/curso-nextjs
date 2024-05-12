@@ -1,0 +1,15 @@
+.modal-background {
+    background-color: rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+}
+
+.modal-wrapper {
+    width: 40%;
+    height: 80%;
+}
+
