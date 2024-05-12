@@ -1,3 +1,5 @@
+"use client";
+
 import { Metadata } from "next";
 
 interface Repository {
@@ -32,15 +34,20 @@ async function getRepo(): Promise<Repository> {
   return res.json()
 }
 
-export const metadata: Metadata = {
-  title: 'Davi\'s page',
-  description: 'Oi mundo.'
-}
+// export const metadata: Metadata = {
+//   title: 'Davi\'s page',
+//   description: 'Oi mundo.'
+// }
 
-export default async function Page() {
-  const [data, time] = await Promise.all([getRepo(), getTime()]);
+export default function Page() {
+  // const [data, time] = await Promise.all([getRepo(), getTime()]);
+  const random = Math.random() * 2;
 
+  if( random < 1 ){
+    throw new Error('Error :(')
+  }
   return (
-   <h1>{data.full_name}, updated at {time.datetime}</h1>
+    <p>Main page</p>
+  //  <h1>{data.full_name}, updated at {time.datetime}</h1>
   );
 }
