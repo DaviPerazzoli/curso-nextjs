@@ -1,8 +1,6 @@
 import { animalImages } from "../animals";
 import Image from "next/image";
 
-
-
 export default function PhotoPage({params}: {params: {
     id: string;
 }}) {
@@ -14,22 +12,24 @@ export default function PhotoPage({params}: {params: {
 
     const colorSpanStyle = {
         display: "inline-block", 
-        width: '10px', 
-        height: '10px', 
+        width: '20px', 
+        height: '20px', 
         backgroundColor: animal.color, 
-        border: '2px solid black', 
-        borderRadius: '5px'};
+        border: '3px solid black', 
+        borderRadius: '2px',
+        marginLeft: '10px'
+    };
 
     return (
-        <div className="photo-page">
+        <main className="photo-page">
             <header className="photo-title">{animal.name}</header>
-            <Image alt={animal.name} src={animal.src} className="photo"/>
+            <Image width={900} height={900} alt={animal.name} src={animal.src} className="photo"/>
             <div className="photo-description">
                 <p>Name: {animal.name}</p>
                 <p>Color: 
                     <span style={colorSpanStyle}></span>
                 </p>
             </div>
-        </div>
+        </main>
     )
 }

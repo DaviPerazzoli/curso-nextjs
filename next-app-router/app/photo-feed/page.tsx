@@ -2,23 +2,23 @@
 
 import { animalImages } from "./animals";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import Link from "next/link";
 
 export default function PhotoFeed () {
-    return (<>
-            <header>
+    return (<main>
+            <header className="photo-feed-title">
                 <h1>Photo Feed</h1>
             </header>
-            <main>
+            <div className="photo-feed">
                 {
                     animalImages.map(animal => {
                         return (
-                            <div key={animal.id} className="animal-feed-photo">
-                                <Image alt={animal.name} src={animal.src}/>
-                            </div>
+                            <Link key={animal.id} className="animal-feed-photo" href={`/photo-feed/${animal.id}`}>
+                                <Image width={400} height={400} alt={animal.name} src={animal.src}/>
+                            </Link>
                         )
                     })
                 }
-            </main>
-        </>)
+            </div>
+        </main>)
 }
