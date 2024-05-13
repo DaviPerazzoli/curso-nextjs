@@ -1,5 +1,8 @@
-import { animalImages } from "./animals"
-import Image from "next/image"
+"use client";
+
+import { animalImages } from "./animals";
+import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function PhotoFeed () {
     return (<>

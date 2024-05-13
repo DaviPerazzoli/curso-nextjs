@@ -6,7 +6,7 @@ export default function PhotoFeedLayout({children, modal}:
 ) {
     return (
     <main>
-        {modal}
+        {/* {modal} */}
         {children}
     </main>
     )
